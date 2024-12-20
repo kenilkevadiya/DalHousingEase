@@ -12,8 +12,8 @@ export default function PropertyTable() {
     const navigate = useNavigate();
     
     const userId = location.state?.userId;
-    console.log("userID" + userId);
-    const url = `http://172.17.0.139:8080/properties/get_properties/${userId}`
+    console.log("userID" + process.env.REACT_APP_BASE_URL);
+    const url = `${process.env.REACT_APP_BASE_URL}/properties/get_properties/${userId}`
     const [properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ export default function PropertyTable() {
             console.error("No userId or token found, redirecting to login.");
             navigate("/login");
         } else {
-            const url = `http://172.17.0.139:8080/properties/get_properties/${userId}`;
+            const url = `${process.env.REACT_APP_BASE_URL}/properties/get_properties/${userId}`;
             axios.get(url, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -64,7 +64,7 @@ export default function PropertyTable() {
             })
             .catch(error => console.log(error))
 
-        await axios.delete(`http://172.17.0.139:8080/properties/delete_property/${property_id}`, {
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/properties/delete_property/${property_id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

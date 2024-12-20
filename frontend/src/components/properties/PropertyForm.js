@@ -82,7 +82,7 @@ export default function PropertyForm() {
 
 
         try {
-            const response = await axios.post("http://172.17.0.139:8080/properties/add", formData, {
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/properties/add`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`

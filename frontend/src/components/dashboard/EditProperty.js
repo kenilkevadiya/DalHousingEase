@@ -24,8 +24,8 @@ export default function EditProperty() {
 
     console.log("prop_ID in edit page:" + property_id);
 
-    const getURL = `http://172.17.0.139:8080/properties/edit_property/${property_id}`;
-    const putURL = `http://172.17.0.139:8080/properties/edit_property/${property_id}`;
+    const getURL = `${process.env.REACT_APP_BASE_URL}/properties/edit_property/${property_id}`;
+    const putURL = `${process.env.REACT_APP_BASE_URL}/properties/edit_property/${property_id}`;
 
     const [data, setData] = useState({
         street_address: "",

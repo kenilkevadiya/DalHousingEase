@@ -14,7 +14,7 @@ import java.util.HashMap;
  * REST controller for managing user-related operations.
  */
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://172.17.0.139:3000")
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController 
 {

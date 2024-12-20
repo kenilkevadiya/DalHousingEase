@@ -54,7 +54,7 @@ export default function PropertyDetails() {
 
   const navigate = useNavigate();
 
-  const getURL = `http://172.17.0.139:8080/properties/get_property_details/${property_id}`;
+  const getURL = `${process.env.REACT_APP_BASE_URL}/properties/get_property_details/${property_id}`;
 
   const token = localStorage.getItem('token')
   useEffect(() => {

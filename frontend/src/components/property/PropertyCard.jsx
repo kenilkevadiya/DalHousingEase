@@ -23,7 +23,7 @@ const PropertyCard = ({ property, onSave, onView, onRemove, isSaved }) => {
                 <div className="p-3 space-y-4">
                     <div className="flex items-center justify-between">
                         <div className="text-2xl font-bold">${property.monthly_rent}/mo</div>
-                        {property.status === 'Approved' ? (
+                        {/* {property.status === 'Approved' ? (
                             <span className="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full !text-green-800">
                                 <span className="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
                                 Verified by Us
@@ -33,7 +33,7 @@ const PropertyCard = ({ property, onSave, onView, onRemove, isSaved }) => {
                                 <span className="w-2 h-2 me-1 bg-yellow-500 rounded-full"></span>
                                 Not verified
                             </span>
-                        )}
+                        )} */}
                     </div>
                     <div className="space-y-1">
                         <div className="text-lg font-medium">{property.street_address}, {property.city}</div>

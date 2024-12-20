@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://172.17.0.139:8080/properties';
+const API_URL = `${process.env.REACT_APP_BASE_URL}/properties`;
 
 export const getProperties = async (filters, token) => {
     const { pageNumber, pageSize, sortBy, sortDir, ...otherFilters } = filters;

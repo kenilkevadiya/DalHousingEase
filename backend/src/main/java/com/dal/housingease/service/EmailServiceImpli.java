@@ -29,7 +29,7 @@ public class EmailServiceImpli implements EmailService
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Password Reset");
-        message.setText("Click the following link to reset your password: http://172.17.0.139:3000/reset-password?token=" + resetToken);
+        message.setText("Click the following link to reset your password: http://localhost:3000/reset-password?token=" + resetToken);
         javaMailSender.send(message);
         logger.info("Password reset email sent successfully to: {}", email);
     }

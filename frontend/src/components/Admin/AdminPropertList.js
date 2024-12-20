@@ -184,7 +184,7 @@ const PropertyList = () => {
   }, []);
 
   useEffect(() => {
-    const socketInstance = io("http://172.17.0.139:4000"); // Replace with your backend WebSocket URL
+    const socketInstance = io("http://localhost:4000"); // Replace with your backend WebSocket URL
     setSocket(socketInstance);
 
     socketInstance.on("newProperty", (newProperty) => {

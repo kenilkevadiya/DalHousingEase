@@ -92,10 +92,11 @@ public class SecurityConfiguration
     {
     	logger.info("Configuring CORS settings");
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://172.17.0.139:3000"));
+//        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of("*"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Origin", "Accept"));
-        configuration.setAllowCredentials(true); // If you want to allow credentials
+        //configuration.setAllowCredentials(true); // If you want to allow credentials
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         logger.info("CORS settings configured successfully");

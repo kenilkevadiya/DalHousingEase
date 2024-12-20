@@ -42,7 +42,7 @@ const AdminDashboard = () => {
 
         const token = localStorage.getItem('token');
 
-        const response = await axios.get(`http://172.17.0.139:8080/admin/properties`, {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/admin/properties`, {
           params: {
             pageNumber: pagination.currentPageNumber,
             pageSize: pagination.currentPageSize,
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
 
       const token = localStorage.getItem('token');
       // const statusUpperCase = status.toUpperCase(); // Ensure status is in uppercase
-      const response = await axios.post(`http://172.17.0.139:8080/admin/properties/${id}`, {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/admin/properties/${id}`, {
         status: status
       }, {
         headers: {
@@ -119,7 +119,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.post(`http://172.17.0.139:8080/admin/properties/${id}/verify`, {}, {
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/admin/properties/${id}/verify`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -24,7 +24,7 @@ export default function GoogleAPI(props) {
 
     return (
         <LoadScript
-            googleMapsApiKey="AIzaSyBdzwenna7DKb9UfzhP8am-X236YvgPJ_g"
+            googleMapsApiKey="AIzaSyBjO1BZH__7F-O0kTqJU3PRb__sp3bjajg"
             libraries={libraries}
         >
             {component}

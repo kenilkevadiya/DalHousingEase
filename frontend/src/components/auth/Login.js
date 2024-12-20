@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import authService from '../../services/auth.service';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -31,6 +32,16 @@ const Login = () => {
         localStorage.setItem('roleId',role);
 
         console.log(role);
+
+
+        // Send login notification using the Lambda function through API Gateway
+        await axios.post(process.env.REACT_APP_API_GATEWAY_URL, {
+          userEmail: email,
+          notificationMessage: 'You have successfully logged in to DalHousingEase.',
+          notificationSubject: 'Welcome to DalHousingEase',
+        });
+
+
         // Redirect based on user role with userId in the query parameter
         if (role === 3) {
           // navigate(`/dashboard/${userId}`);
@@ -56,51 +67,9 @@ const Login = () => {
       setLoading(false);
     }
   };
-  /*
-  return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 ">
-      <div className="card shadow p-4 login-card">
-        <div className="card-body">
-          <h2 className="card-title text-center mb-4" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '2rem', color: 'rgb(14 33 93)' }} >Login</h2>
-          <form onSubmit={handleLogin}>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            {error && <div className="alert alert-danger mt-3">{error}</div>}
-            <button type="submit" className="btn btn-primary btn-block mt-3" style={{ backgroundColor: 'rgb(29 21 69)', borderColor: '#28a745' }} disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-            <div className="mt-3 text-center">
-              <Link to="/forgot-password">Forgot Password?</Link>
-            </div>
-            <p className="mt-3 text-center" style={{ color: 'black' }}>
-              Don't have an account? <Link to="/signup" style={{fontWeight: 'normal' }}>Sign up here</Link>
-            </p>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-  */
+
+
+
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
       <div className="card shadow p-4 login-card">

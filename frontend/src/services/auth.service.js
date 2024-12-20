@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://172.17.0.139:8080/api/auth/';
+const API_URL = `${process.env.REACT_APP_BASE_URL}/api/auth/`;
 
 class AuthService {
   login(email, password) {
@@ -24,6 +24,7 @@ class AuthService {
   }
 
   register({ email, password, userName, firstName, lastName, mobileNumber, role }) {
+    console.log('Register API URL:', API_URL + 'signup'); // Debugging line
     return axios.post(API_URL + 'signup', {
       email,
       password,
