@@ -15,21 +15,21 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from the repository...'
-                git 'https://github.com/parthmadhvani/DalHousing.git' // Uncomment this line when ready to use
+                git 'https://github.com/kenilkevadiya/DalHousingEase.git'
             }
         }
         
         stage('Build') {
             steps {
                 echo 'Building the project using Maven...'
-                // sh 'mvn clean install' // Uncomment this line when ready to use
+                sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                // sh 'mvn test' // Uncomment this line when ready to use
+                sh 'mvn test'
             }
         }
 
@@ -45,7 +45,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                // Add your deployment commands here (if applicable)
             }
         }
     }
